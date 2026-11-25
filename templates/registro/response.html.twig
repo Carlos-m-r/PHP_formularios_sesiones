@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegistroController!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+        {% if data !== null %}
+            <p>Datos recibidos:</p>
+            {% for key, value in renderData %}
+                {% if key == 'fecha_nacimiento' %}
+                    <li>{{ key }} -> {{ value |date('d-m-Y') }}</li>
+                {% else %}
+                    <li>{{ key }} -> {{ value }}</li>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
